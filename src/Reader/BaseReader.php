@@ -61,7 +61,7 @@ abstract class BaseReader extends Operator implements BaseReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $file = new \SplFileObject($this->path(), 'r');
+        $file = new \SplFileObject($this->path(), "r");
 
         if (!$file) return null;
 

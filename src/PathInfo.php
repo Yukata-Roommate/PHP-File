@@ -69,10 +69,10 @@ class PathInfo implements PathInfoInterface
     {
         $pathInfo = pathinfo($path);
 
-        $this->dirname   = $pathInfo['dirname'];
-        $this->basename  = $pathInfo['basename'];
-        $this->extension = $pathInfo['extension'];
-        $this->filename  = $pathInfo['filename'];
+        $this->dirname   = $pathInfo["dirname"];
+        $this->basename  = $pathInfo["basename"];
+        $this->extension = $pathInfo["extension"];
+        $this->filename  = $pathInfo["filename"];
 
         return $this;
     }
@@ -115,7 +115,7 @@ class PathInfo implements PathInfoInterface
     {
         return $this->setPath($this->createPath(
             $this->dirname(),
-            $this->filename() . '.' . $extension
+            $this->filename() . "." . $extension
         ));
     }
 
@@ -129,7 +129,7 @@ class PathInfo implements PathInfoInterface
     {
         return $this->setPath($this->createPath(
             $this->dirname(),
-            $filename . '.' . $this->extension()
+            $filename . "." . $this->extension()
         ));
     }
 
@@ -242,7 +242,7 @@ class PathInfo implements PathInfoInterface
      */
     public function sizeString(): string
     {
-        return $this->size() . ' bytes';
+        return $this->size() . " bytes";
     }
 
     /**
@@ -262,7 +262,7 @@ class PathInfo implements PathInfoInterface
      */
     public function sizeKbString(): string
     {
-        return $this->sizeKb() . ' KB';
+        return $this->sizeKb() . " KB";
     }
 
     /**
@@ -282,7 +282,7 @@ class PathInfo implements PathInfoInterface
      */
     public function sizeMbString(): string
     {
-        return $this->sizeMb() . ' MB';
+        return $this->sizeMb() . " MB";
     }
 
     /**
@@ -302,7 +302,7 @@ class PathInfo implements PathInfoInterface
      */
     public function sizeGbString(): string
     {
-        return $this->sizeGb() . ' GB';
+        return $this->sizeGb() . " GB";
     }
 
     /*----------------------------------------*
@@ -320,7 +320,7 @@ class PathInfo implements PathInfoInterface
 
         if ($mode === false) throw new \RuntimeException("failed to get file mode.");
 
-        return substr(sprintf('%o', $mode), -4);
+        return substr(sprintf("%o", $mode), -4);
     }
 
     /**
@@ -338,7 +338,7 @@ class PathInfo implements PathInfoInterface
 
         if ($pwuid === false) throw new \RuntimeException("failed to get file owner information.");
 
-        return $pwuid['name'];
+        return $pwuid["name"];
     }
 
     /**
@@ -356,7 +356,7 @@ class PathInfo implements PathInfoInterface
 
         if ($grgid === false) throw new \RuntimeException("failed to get file group information.");
 
-        return $grgid['name'];
+        return $grgid["name"];
     }
 
     /*----------------------------------------*
