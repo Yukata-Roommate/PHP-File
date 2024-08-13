@@ -1,6 +1,6 @@
 # PHP File
 
-File Reader and Writer for PHP
+Easy to use file for PHP
 
 ## Installation
 

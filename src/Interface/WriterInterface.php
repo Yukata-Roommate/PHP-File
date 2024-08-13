@@ -1,16 +1,16 @@
 <?php
 
-namespace YukataRm\File\Writer\Interface;
+namespace YukataRm\File\Interface;
 
 use YukataRm\File\Interface\PathInfoInterface;
 use YukataRm\File\Interface\OperatorInterface;
 
 /**
- * Base Writer Interface
+ * Writer Interface
  * 
- * @package YukataRm\File\Writer\Interface
+ * @package YukataRm\File\Interface
  */
-interface BaseWriterInterface extends PathInfoInterface, OperatorInterface
+interface WriterInterface extends PathInfoInterface, OperatorInterface
 {
     /*----------------------------------------*
      * Write
@@ -76,4 +76,23 @@ interface BaseWriterInterface extends PathInfoInterface, OperatorInterface
      * @return static
      */
     public function notUseLockEx(): static;
+
+    /*----------------------------------------*
+     * Content
+     *----------------------------------------*/
+
+    /**
+     * get content to write
+     * 
+     * @return mixed
+     */
+    public function content(): mixed;
+
+    /**
+     * set content to write
+     * 
+     * @param mixed $content
+     * @return static
+     */
+    public function setContent(mixed $content): static;
 }

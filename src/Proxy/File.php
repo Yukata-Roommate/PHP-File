@@ -4,7 +4,7 @@ namespace YukataRm\File\Proxy;
 
 use YukataRm\StaticProxy\StaticProxy;
 
-use YukataRm\File\Proxy\Manager\FileManager;
+use YukataRm\File\Proxy\Manager;
 
 /**
  * File Proxy
@@ -13,8 +13,10 @@ use YukataRm\File\Proxy\Manager\FileManager;
  * 
  * @method static \YukataRm\File\Interface\PathInfoInterface pathInfo()
  * @method static \YukataRm\File\Interface\OperatorInterface operator()
+ * @method static \YukataRm\File\Interface\WriterInterface writer()
+ * @method static \YukataRm\File\Interface\ReaderInterface reader()
  * 
- * @see \YukataRm\File\Proxy\Manager\FileManager
+ * @see \YukataRm\File\Proxy\Manager
  */
 class File extends StaticProxy
 {
@@ -25,6 +27,6 @@ class File extends StaticProxy
      */
     protected static function getCallableClassName(): string
     {
-        return FileManager::class;
+        return Manager::class;
     }
 }

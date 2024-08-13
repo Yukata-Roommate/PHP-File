@@ -1,9 +1,9 @@
 {
     "name": "yukata-roommate/file",
-    "description": "File Reader and Writer for PHP",
+    "description": "Easy to use file for PHP",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "autoload": {
         "psr-4": {
             "YukataRm\\File\\": "src"

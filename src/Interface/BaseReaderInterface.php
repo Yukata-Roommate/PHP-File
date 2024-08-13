@@ -1,16 +1,16 @@
 <?php
 
-namespace YukataRm\File\Reader\Interface;
+namespace YukataRm\File\Interface;
 
 use YukataRm\File\Interface\PathInfoInterface;
 use YukataRm\File\Interface\OperatorInterface;
 
 /**
- * Base Reader Interface
+ * Reader Interface
  * 
- * @package YukataRm\File\Reader\Interface
+ * @package YukataRm\File\Interface
  */
-interface BaseReaderInterface extends PathInfoInterface, OperatorInterface
+interface ReaderInterface extends PathInfoInterface, OperatorInterface
 {
     /*----------------------------------------*
      * Read

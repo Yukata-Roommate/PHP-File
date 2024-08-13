@@ -1,16 +1,16 @@
 <?php
 
-namespace YukataRm\File\Reader;
+namespace YukataRm\File;
 
-use YukataRm\File\Reader\Interface\BaseReaderInterface;
+use YukataRm\File\Interface\ReaderInterface;
 use YukataRm\File\Operator;
 
 /**
- * Base Reader
+ * Reader
  * 
- * @package YukataRm\File\Reader
+ * @package YukataRm\File
  */
-abstract class BaseReader extends Operator implements BaseReaderInterface
+class Reader extends Operator implements ReaderInterface
 {
     /*----------------------------------------*
      * Read
@@ -84,9 +84,10 @@ abstract class BaseReader extends Operator implements BaseReaderInterface
      * @param \SplFileObject $file
      * @return mixed
      */
-    abstract protected function getFileData(\SplFileObject $file): mixed;
-
-
+    protected function getFileData(\SplFileObject $file): mixed
+    {
+        return $file->fgets();
+    }
 
     /*----------------------------------------*
      * Read - Chunk

@@ -1,16 +1,16 @@
 <?php
 
-namespace YukataRm\File\Writer;
+namespace YukataRm\File;
 
-use YukataRm\File\Writer\Interface\BaseWriterInterface;
+use YukataRm\File\Interface\WriterInterface;
 use YukataRm\File\Operator;
 
 /**
- * Base Writer
+ * Writer
  * 
- * @package YukataRm\File\Writer
+ * @package YukataRm\File
  */
-abstract class BaseWriter extends Operator implements BaseWriterInterface
+class Writer extends Operator implements WriterInterface
 {
     /*----------------------------------------*
      * Write
@@ -188,9 +188,32 @@ abstract class BaseWriter extends Operator implements BaseWriterInterface
      *----------------------------------------*/
 
     /**
+     * content to write
+     * 
+     * @var mixed
+     */
+    protected mixed $content = null;
+
+    /**
      * get content to write
      * 
      * @return mixed
      */
-    abstract public function content(): mixed;
+    public function content(): mixed
+    {
+        return $this->content;
+    }
+
+    /**
+     * set content to write
+     * 
+     * @param mixed $content
+     * @return static
+     */
+    public function setContent(mixed $content): static
+    {
+        $this->content = $content;
+
+        return $this;
+    }
 }
