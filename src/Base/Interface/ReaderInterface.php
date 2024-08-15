@@ -1,6 +1,6 @@
 <?php
 
-namespace YukataRm\File\Interface;
+namespace YukataRm\File\Base\Interface;
 
 use YukataRm\File\Interface\PathInfoInterface;
 use YukataRm\File\Interface\OperatorInterface;
@@ -8,7 +8,7 @@ use YukataRm\File\Interface\OperatorInterface;
 /**
  * Reader Interface
  * 
- * @package YukataRm\File\Interface
+ * @package YukataRm\File\Base\Interface
  */
 interface ReaderInterface extends PathInfoInterface, OperatorInterface
 {
@@ -24,7 +24,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
     public function read(): string|null;
 
     /*----------------------------------------*
-     * Read - Line
+     * Read Line
      *----------------------------------------*/
 
     /**
@@ -44,7 +44,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
     public function readLineByLine(int $start = 1): \Generator|null;
 
     /*----------------------------------------*
-     * Read - Chunk
+     * Read Chunk
      *----------------------------------------*/
 
     /**
