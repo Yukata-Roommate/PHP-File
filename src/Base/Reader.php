@@ -25,7 +25,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $data = file_get_contents($this->path());
+        $data = file_get_contents($this->realpath());
 
         return is_string($data) ? $data : null;
     }
@@ -44,7 +44,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $data = file($this->path(), FILE_IGNORE_NEW_LINES);
+        $data = file($this->realpath(), FILE_IGNORE_NEW_LINES);
 
         if (!is_array($data)) return null;
 
@@ -61,7 +61,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $file = new \SplFileObject($this->path(), "r");
+        $file = new \SplFileObject($this->realpath(), "r");
 
         if (!$file) return null;
 
@@ -113,11 +113,13 @@ abstract class Reader extends Operator implements ReaderInterface
      */
     public function readChunkByChunk(int $row = 1, int $start = 1): \Generator|null
     {
-        if (!$this->isExists()) return null;
+        $lines = $this->readLineByLine($start);
+
+        if (!$lines) return null;
 
         $chunk = [];
 
-        foreach ($this->readLineByLine($start) as $line) {
+        foreach ($lines as $line) {
             $chunk[] = $line;
 
             if (count($chunk) < $row) continue;

@@ -14,10 +14,13 @@ use YukataRm\File\Proxy\Manager\PathInfoManager as Manager;
  * @method static \YukataRm\File\Interface\PathInfoInterface make()
  * @method static \YukataRm\File\Interface\PathInfoInterface makeFrom(string $path)
  * 
+ * @method static array<string, string> pathInfo(string $path)
  * @method static string dirname(string $path)
  * @method static string basename(string $path)
  * @method static string extension(string $path)
  * @method static string filename(string $path)
+ * 
+ * @method static string mimetype(string $path)
  * 
  * @method static int lastModified(string $path)
  * @method static \DateTime lastModifiedDateTime(string $path)

@@ -27,7 +27,7 @@ class Operator extends PathInfo implements OperatorInterface
 
         if (!$this->isDirExists()) $this->createDir();
 
-        return touch($this->path());
+        return touch($this->realpath());
     }
 
     /**
@@ -55,7 +55,7 @@ class Operator extends PathInfo implements OperatorInterface
     {
         if (!$this->isExists()) return false;
 
-        return unlink($this->path());
+        return unlink($this->realpath());
     }
 
     /*----------------------------------------*
@@ -78,7 +78,7 @@ class Operator extends PathInfo implements OperatorInterface
 
         if (!$copy->isDirExists()) $copy->createDir();
 
-        $result = copy($this->path(), $copy->path());
+        $result = copy($this->realpath(), $copy->realpath());
 
         return $result ? $copy : null;
     }
@@ -103,7 +103,7 @@ class Operator extends PathInfo implements OperatorInterface
 
         if (!$move->isDirExists()) $move->createDir();
 
-        $result = rename($this->path(), $move->path());
+        $result = rename($this->realpath(), $move->realpath());
 
         return $result ? $move : null;
     }
@@ -120,7 +120,7 @@ class Operator extends PathInfo implements OperatorInterface
      */
     public function chmod(int $mode): bool
     {
-        return chmod($this->path(), $mode);
+        return chmod($this->realpath(), $mode);
     }
 
     /**
@@ -131,7 +131,7 @@ class Operator extends PathInfo implements OperatorInterface
      */
     public function chown(string $user): bool
     {
-        return chown($this->path(), $user);
+        return chown($this->realpath(), $user);
     }
 
     /**
@@ -142,6 +142,6 @@ class Operator extends PathInfo implements OperatorInterface
      */
     public function chgrp(string $group): bool
     {
-        return chgrp($this->path(), $group);
+        return chgrp($this->realpath(), $group);
     }
 }

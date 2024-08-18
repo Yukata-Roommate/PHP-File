@@ -42,6 +42,17 @@ class PathInfoManager
      *----------------------------------------*/
 
     /**
+     * get path info
+     * 
+     * @param string $path
+     * @return array<string, string>
+     */
+    public function pathInfo(string $path): array
+    {
+        return $this->makeFrom($path)->pathInfo();
+    }
+
+    /**
      * get directory name
      * 
      * @param string $path
@@ -83,6 +94,21 @@ class PathInfoManager
     public function filename(string $path): string
     {
         return $this->makeFrom($path)->filename();
+    }
+
+    /*----------------------------------------*
+     * Mime
+     *----------------------------------------*/
+
+    /**
+     * get mime type
+     * 
+     * @param string $path
+     * @return string
+     */
+    public function mimetype(string $path): string
+    {
+        return $this->makeFrom($path)->mimetype();
     }
 
     /*----------------------------------------*

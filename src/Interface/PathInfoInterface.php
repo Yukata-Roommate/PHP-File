@@ -10,7 +10,7 @@ namespace YukataRm\File\Interface;
 interface PathInfoInterface
 {
     /*----------------------------------------*
-     * Setters
+     * Property
      *----------------------------------------*/
 
     /**
@@ -20,38 +20,6 @@ interface PathInfoInterface
      * @return static
      */
     public function setPath(string $path): static;
-
-    /**
-     * set directory name
-     * 
-     * @param string $dirname
-     * @return static
-     */
-    public function setDirname(string $dirname): static;
-
-    /**
-     * set file name and extension
-     * 
-     * @param string $basename
-     * @return static
-     */
-    public function setBasename(string $basename): static;
-
-    /**
-     * set file extension
-     * 
-     * @param string $extension
-     * @return static
-     */
-    public function setExtension(string $extension): static;
-
-    /**
-     * set file name
-     * 
-     * @param string $filename
-     * @return static
-     */
-    public function setFilename(string $filename): static;
 
     /*----------------------------------------*
      * Info
@@ -63,6 +31,20 @@ interface PathInfoInterface
      * @return string
      */
     public function path(): string;
+
+    /**
+     * get real path
+     * 
+     * @return string
+     */
+    public function realpath(): string;
+
+    /**
+     * get path info
+     * 
+     * @return array<string, string>
+     */
+    public function pathInfo(): array;
 
     /**
      * get directory name
@@ -91,6 +73,17 @@ interface PathInfoInterface
      * @return string
      */
     public function filename(): string;
+
+    /*----------------------------------------*
+     * Mime
+     *----------------------------------------*/
+
+    /**
+     * get mime type
+     * 
+     * @return string
+     */
+    public function mimetype(): string;
 
     /*----------------------------------------*
      * Last Modified

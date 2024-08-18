@@ -11,53 +11,16 @@ use YukataRm\File\Interface\PathInfoInterface;
  */
 class PathInfo implements PathInfoInterface
 {
-    /**
-     * directory name
-     * 
-     * @var string
-     */
-    protected string $dirname = "";
-
-    /**
-     * file name and extension
-     * 
-     * @var string
-     */
-    protected string $basename = "";
-
-    /**
-     * file extension
-     * 
-     * @var string
-     */
-    protected string $extension = "";
-
-    /**
-     * file name
-     *
-     * @var string
-     */
-    protected string $filename = "";
-
     /*----------------------------------------*
-     * Utilities
+     * Property
      *----------------------------------------*/
 
     /**
-     * create path
+     * file path
      * 
-     * @param string $dirname
-     * @param string $basename
-     * @return string
+     * @var string
      */
-    protected function createPath(string $dirname, string $basename): string
-    {
-        return $dirname . DIRECTORY_SEPARATOR . $basename;
-    }
-
-    /*----------------------------------------*
-     * Setters
-     *----------------------------------------*/
+    protected string $path = "";
 
     /**
      * set path
@@ -67,70 +30,9 @@ class PathInfo implements PathInfoInterface
      */
     public function setPath(string $path): static
     {
-        $pathInfo = pathinfo($path);
-
-        $this->dirname   = $pathInfo["dirname"];
-        $this->basename  = $pathInfo["basename"];
-        $this->extension = $pathInfo["extension"];
-        $this->filename  = $pathInfo["filename"];
+        $this->path = realpath($path);
 
         return $this;
-    }
-
-    /**
-     * set directory name
-     * 
-     * @param string $dirname
-     * @return static
-     */
-    public function setDirname(string $dirname): static
-    {
-        return $this->setPath($this->createPath(
-            $dirname,
-            $this->basename()
-        ));
-    }
-
-    /**
-     * set file name and extension
-     * 
-     * @param string $basename
-     * @return static
-     */
-    public function setBasename(string $basename): static
-    {
-        return $this->setPath($this->createPath(
-            $this->dirname(),
-            $basename
-        ));
-    }
-
-    /**
-     * set file extension
-     * 
-     * @param string $extension
-     * @return static
-     */
-    public function setExtension(string $extension): static
-    {
-        return $this->setPath($this->createPath(
-            $this->dirname(),
-            $this->filename() . "." . $extension
-        ));
-    }
-
-    /**
-     * set file name
-     * 
-     * @param string $filename
-     * @return static
-     */
-    public function setFilename(string $filename): static
-    {
-        return $this->setPath($this->createPath(
-            $this->dirname(),
-            $filename . "." . $this->extension()
-        ));
     }
 
     /*----------------------------------------*
@@ -144,7 +46,31 @@ class PathInfo implements PathInfoInterface
      */
     public function path(): string
     {
-        return $this->createPath($this->dirname(), $this->basename());
+        return $this->path;
+    }
+
+    /**
+     * get real path
+     * 
+     * @return string
+     */
+    public function realpath(): string
+    {
+        $realpath = realpath($this->path());
+
+        if ($realpath === false) throw new \RuntimeException("failed to get real path.");
+
+        return $realpath;
+    }
+
+    /**
+     * get path info
+     * 
+     * @return array<string, string>
+     */
+    public function pathInfo(): array
+    {
+        return pathinfo($this->realpath());
     }
 
     /**
@@ -154,7 +80,7 @@ class PathInfo implements PathInfoInterface
      */
     public function dirname(): string
     {
-        return $this->dirname;
+        return $this->pathInfo()["dirname"];
     }
 
     /**
@@ -164,7 +90,7 @@ class PathInfo implements PathInfoInterface
      */
     public function basename(): string
     {
-        return $this->basename;
+        return $this->pathInfo()["basename"];
     }
 
     /**
@@ -174,7 +100,7 @@ class PathInfo implements PathInfoInterface
      */
     public function extension(): string
     {
-        return $this->extension;
+        return $this->pathInfo()["extension"];
     }
 
     /**
@@ -184,7 +110,25 @@ class PathInfo implements PathInfoInterface
      */
     public function filename(): string
     {
-        return $this->filename;
+        return $this->pathInfo()["filename"];
+    }
+
+    /*----------------------------------------*
+     * Mime
+     *----------------------------------------*/
+
+    /**
+     * get mime type
+     * 
+     * @return string
+     */
+    public function mimetype(): string
+    {
+        $mimetype = mime_content_type($this->realpath());
+
+        if ($mimetype === false) throw new \RuntimeException("failed to get mime type.");
+
+        return $mimetype;
     }
 
     /*----------------------------------------*
@@ -198,7 +142,7 @@ class PathInfo implements PathInfoInterface
      */
     public function lastModified(): int
     {
-        $lastModified = filemtime($this->path());
+        $lastModified = filemtime($this->realpath());
 
         if ($lastModified === false) throw new \RuntimeException("failed to get last modified time.");
 
@@ -228,7 +172,7 @@ class PathInfo implements PathInfoInterface
      */
     public function size(): int
     {
-        $size = filesize($this->path());
+        $size = filesize($this->realpath());
 
         if ($size === false) throw new \RuntimeException("failed to get file size.");
 
@@ -316,7 +260,7 @@ class PathInfo implements PathInfoInterface
      */
     public function mode(): string
     {
-        $mode = fileperms($this->path());
+        $mode = fileperms($this->realpath());
 
         if ($mode === false) throw new \RuntimeException("failed to get file mode.");
 
@@ -330,7 +274,7 @@ class PathInfo implements PathInfoInterface
      */
     public function owner(): string
     {
-        $owner = fileowner($this->path());
+        $owner = fileowner($this->realpath());
 
         if ($owner === false) throw new \RuntimeException("failed to get file owner.");
 
@@ -348,7 +292,7 @@ class PathInfo implements PathInfoInterface
      */
     public function group(): string
     {
-        $group = filegroup($this->path());
+        $group = filegroup($this->realpath());
 
         if ($group === false) throw new \RuntimeException("failed to get file group.");
 
@@ -370,7 +314,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isExists(): bool
     {
-        return file_exists($this->path());
+        return file_exists($this->realpath());
     }
 
     /**
@@ -380,7 +324,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isDirExists(): bool
     {
-        return is_dir($this->dirname);
+        return is_dir($this->dirname());
     }
 
     /**
@@ -390,7 +334,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isDir(): bool
     {
-        return is_dir($this->path());
+        return is_dir($this->realpath());
     }
 
     /**
@@ -400,7 +344,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isFile(): bool
     {
-        return is_file($this->path());
+        return is_file($this->realpath());
     }
 
     /**
@@ -410,7 +354,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isLink(): bool
     {
-        return is_link($this->path());
+        return is_link($this->realpath());
     }
 
     /**
@@ -420,7 +364,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isReadable(): bool
     {
-        return is_readable($this->path());
+        return is_readable($this->realpath());
     }
 
     /**
@@ -430,7 +374,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isWritable(): bool
     {
-        return is_writable($this->path());
+        return is_writable($this->realpath());
     }
 
     /**
@@ -440,6 +384,6 @@ class PathInfo implements PathInfoInterface
      */
     public function isExecutable(): bool
     {
-        return is_executable($this->path());
+        return is_executable($this->realpath());
     }
 }
