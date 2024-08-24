@@ -74,7 +74,7 @@ abstract class Writer extends Operator implements WriterInterface
     protected function writeFile(mixed $data): bool
     {
         $result = file_put_contents(
-            $this->realpath(),
+            $this->path(),
             $data,
             $this->flag(),
         );

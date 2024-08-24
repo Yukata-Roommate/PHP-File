@@ -30,7 +30,7 @@ class PathInfo implements PathInfoInterface
      */
     public function setPath(string $path): static
     {
-        $this->path = realpath($path);
+        $this->path = $path;
 
         return $this;
     }
@@ -70,7 +70,7 @@ class PathInfo implements PathInfoInterface
      */
     public function pathInfo(): array
     {
-        return pathinfo($this->realpath());
+        return pathinfo($this->path());
     }
 
     /**
@@ -124,7 +124,7 @@ class PathInfo implements PathInfoInterface
      */
     public function mimetype(): string
     {
-        $mimetype = mime_content_type($this->realpath());
+        $mimetype = mime_content_type($this->path());
 
         if ($mimetype === false) throw new \RuntimeException("failed to get mime type.");
 
@@ -142,7 +142,7 @@ class PathInfo implements PathInfoInterface
      */
     public function lastModified(): int
     {
-        $lastModified = filemtime($this->realpath());
+        $lastModified = filemtime($this->path());
 
         if ($lastModified === false) throw new \RuntimeException("failed to get last modified time.");
 
@@ -172,7 +172,7 @@ class PathInfo implements PathInfoInterface
      */
     public function size(): int
     {
-        $size = filesize($this->realpath());
+        $size = filesize($this->path());
 
         if ($size === false) throw new \RuntimeException("failed to get file size.");
 
@@ -260,7 +260,7 @@ class PathInfo implements PathInfoInterface
      */
     public function mode(): string
     {
-        $mode = fileperms($this->realpath());
+        $mode = fileperms($this->path());
 
         if ($mode === false) throw new \RuntimeException("failed to get file mode.");
 
@@ -274,7 +274,7 @@ class PathInfo implements PathInfoInterface
      */
     public function owner(): string
     {
-        $owner = fileowner($this->realpath());
+        $owner = fileowner($this->path());
 
         if ($owner === false) throw new \RuntimeException("failed to get file owner.");
 
@@ -292,7 +292,7 @@ class PathInfo implements PathInfoInterface
      */
     public function group(): string
     {
-        $group = filegroup($this->realpath());
+        $group = filegroup($this->path());
 
         if ($group === false) throw new \RuntimeException("failed to get file group.");
 
@@ -314,7 +314,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isExists(): bool
     {
-        return file_exists($this->realpath());
+        return file_exists($this->path());
     }
 
     /**
@@ -334,7 +334,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isDir(): bool
     {
-        return is_dir($this->realpath());
+        return is_dir($this->path());
     }
 
     /**
@@ -344,7 +344,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isFile(): bool
     {
-        return is_file($this->realpath());
+        return is_file($this->path());
     }
 
     /**
@@ -354,7 +354,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isLink(): bool
     {
-        return is_link($this->realpath());
+        return is_link($this->path());
     }
 
     /**
@@ -364,7 +364,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isReadable(): bool
     {
-        return is_readable($this->realpath());
+        return is_readable($this->path());
     }
 
     /**
@@ -374,7 +374,7 @@ class PathInfo implements PathInfoInterface
      */
     public function isWritable(): bool
     {
-        return is_writable($this->realpath());
+        return is_writable($this->path());
     }
 
     /**
@@ -384,6 +384,6 @@ class PathInfo implements PathInfoInterface
      */
     public function isExecutable(): bool
     {
-        return is_executable($this->realpath());
+        return is_executable($this->path());
     }
 }

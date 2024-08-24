@@ -25,7 +25,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $data = file_get_contents($this->realpath());
+        $data = file_get_contents($this->path());
 
         return is_string($data) ? $data : null;
     }
@@ -44,7 +44,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $data = file($this->realpath(), FILE_IGNORE_NEW_LINES);
+        $data = file($this->path(), FILE_IGNORE_NEW_LINES);
 
         if (!is_array($data)) return null;
 
@@ -61,7 +61,7 @@ abstract class Reader extends Operator implements ReaderInterface
     {
         if (!$this->isExists()) return null;
 
-        $file = new \SplFileObject($this->realpath(), "r");
+        $file = new \SplFileObject($this->path(), "r");
 
         if (!$file) return null;
 
