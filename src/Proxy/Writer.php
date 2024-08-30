@@ -14,7 +14,7 @@ use YukataRm\File\Proxy\Manager\WriterManager as Manager;
  * @method static \YukataRm\File\Interface\WriterInterface make()
  * @method static \YukataRm\File\Interface\WriterInterface makeFrom(string $path)
  * 
- * @method static bool write(string $path, mixed $content, bool $useFileAppend = false, bool $useLockEx = false)
+ * @method static bool write(string $path, mixed $content, bool $useFileAppend = false, bool $useLockEx = false, int|null $mode = null, string|null $user = null, string|null $group = null)
  * 
  * @see \YukataRm\File\Proxy\Manager\WriterManager
  */

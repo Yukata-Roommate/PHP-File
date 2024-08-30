@@ -48,15 +48,25 @@ class WriterManager
      * @param mixed $content
      * @param bool $useFileAppend
      * @param bool $useLockEx
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function write(string $path, mixed $content, bool $useFileAppend = false, bool $useLockEx = false): bool
-    {
+    public function write(
+        string $path,
+        mixed $content,
+        bool $useFileAppend = false,
+        bool $useLockEx = false,
+        int|null $mode = null,
+        string|null $user = null,
+        string|null $group = null
+    ): bool {
         $writer = $this->makeFrom($path)->setContent($content);
 
         if ($useFileAppend) $writer->useFileAppend();
         if ($useLockEx) $writer->useLockEx();
 
-        return $writer->write();
+        return $writer->write($mode, $user, $group);
     }
 }

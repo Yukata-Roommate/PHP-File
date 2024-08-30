@@ -19,11 +19,14 @@ abstract class Writer extends Operator implements WriterInterface
     /**
      * write file
      * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function write(): bool
+    public function write(int|null $mode = null, string|null $user = null, string|null $group = null): bool
     {
-        $this->createIfNotExists();
+        $this->createIfNotExists($mode, $user, $group);
 
         $data = $this->getData();
 
@@ -34,11 +37,14 @@ abstract class Writer extends Operator implements WriterInterface
      * write file as is
      * 
      * @param mixed $data
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function writeAsIs(mixed $data): bool
+    public function writeAsIs(mixed $data, int|null $mode = null, string|null $user = null, string|null $group = null): bool
     {
-        $this->createIfNotExists();
+        $this->createIfNotExists($mode, $user, $group);
 
         return $this->writeFile($data);
     }
@@ -46,13 +52,16 @@ abstract class Writer extends Operator implements WriterInterface
     /**
      * create file if not exists
      * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    protected function createIfNotExists(): bool
+    protected function createIfNotExists(int|null $mode = null, string|null $user = null, string|null $group = null): bool
     {
         if ($this->isExists()) return true;
 
-        return $this->create();
+        return $this->create($mode, $user, $group);
     }
 
     /**

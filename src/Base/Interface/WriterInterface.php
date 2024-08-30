@@ -19,17 +19,23 @@ interface WriterInterface extends PathInfoInterface, OperatorInterface
     /**
      * write file
      * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function write(): bool;
+    public function write(int|null $mode = null, string|null $user = null, string|null $group = null): bool;
 
     /**
      * write file as is
      * 
      * @param mixed $data
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function writeAsIs(mixed $data): bool;
+    public function writeAsIs(mixed $data, int|null $mode = null, string|null $user = null, string|null $group = null): bool;
 
     /*----------------------------------------*
      * Flag

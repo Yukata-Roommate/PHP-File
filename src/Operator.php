@@ -19,15 +19,22 @@ class Operator extends PathInfo implements OperatorInterface
     /**
      * create file
      * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function create(): bool
+    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): bool
     {
         if ($this->isExists()) return false;
 
         if (!$this->isDirExists()) $this->createDir();
 
-        return touch($this->path());
+        $result = touch($this->path());
+
+        if (!$result) return false;
+
+        return $this->chperm($mode, $user, $group);
     }
 
     /**
@@ -113,7 +120,26 @@ class Operator extends PathInfo implements OperatorInterface
      *----------------------------------------*/
 
     /**
-     * set file mode
+     * change file permissions
+     * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
+     * @return bool
+     */
+    public function chperm(int|null $mode = null, string|null $user = null, string|null $group = null): bool
+    {
+        if (!is_null($mode) && !$this->chmod($mode)) return false;
+
+        if (!is_null($user) && !$this->chown($user)) return false;
+
+        if (!is_null($group) && !$this->chgrp($group)) return false;
+
+        return true;
+    }
+
+    /**
+     * change file mode
      * 
      * @param int $mode
      * @return bool
@@ -124,7 +150,7 @@ class Operator extends PathInfo implements OperatorInterface
     }
 
     /**
-     * set file owner
+     * change file owner
      * 
      * @param string $user
      * @return bool
@@ -135,7 +161,7 @@ class Operator extends PathInfo implements OperatorInterface
     }
 
     /**
-     * set file group
+     * change file group
      * 
      * @param string $group
      * @return bool

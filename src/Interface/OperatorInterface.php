@@ -18,9 +18,12 @@ interface OperatorInterface extends PathInfoInterface
     /**
      * create file
      * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
      * @return bool
      */
-    public function create(): bool;
+    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): bool;
 
     /*----------------------------------------*
      * Remove
@@ -62,7 +65,17 @@ interface OperatorInterface extends PathInfoInterface
      *----------------------------------------*/
 
     /**
-     * set file mode
+     * change file permissions
+     * 
+     * @param int|null $mode
+     * @param string|null $user
+     * @param string|null $group
+     * @return bool
+     */
+    public function chperm(int|null $mode = null, string|null $user = null, string|null $group = null): bool;
+
+    /**
+     * change file mode
      * 
      * @param int $mode
      * @return bool
@@ -70,7 +83,7 @@ interface OperatorInterface extends PathInfoInterface
     public function chmod(int $mode): bool;
 
     /**
-     * set file owner
+     * change file owner
      * 
      * @param string $user
      * @return bool
@@ -78,7 +91,7 @@ interface OperatorInterface extends PathInfoInterface
     public function chown(string $user): bool;
 
     /**
-     * set file group
+     * change file group
      * 
      * @param string $group
      * @return bool
