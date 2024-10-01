@@ -23,7 +23,7 @@ abstract class Reader extends Operator implements ReaderInterface
      */
     public function read(): string|null
     {
-        if (!$this->isExists()) return null;
+        if (!$this->isExists()) throw new \RuntimeException("file not found. path: {$this->path()}");
 
         $data = file_get_contents($this->path());
 
@@ -38,15 +38,15 @@ abstract class Reader extends Operator implements ReaderInterface
      * read file by line
      * 
      * @param int $start
-     * @return array|null
+     * @return array
      */
-    public function readByLine(int $start = 1): array|null
+    public function readByLine(int $start = 1): array
     {
-        if (!$this->isExists()) return null;
+        if (!$this->isExists()) throw new \RuntimeException("file not found. path: {$this->path()}");
 
         $data = file($this->path(), FILE_IGNORE_NEW_LINES);
 
-        if (!is_array($data)) return null;
+        if (!is_array($data)) return [];
 
         return array_slice($data, $start - 1);
     }
@@ -55,15 +55,15 @@ abstract class Reader extends Operator implements ReaderInterface
      * read file line by line
      * 
      * @param int $start
-     * @return \Generator|null
+     * @return \Generator
      */
-    public function readLineByLine(int $start = 1): \Generator|null
+    public function readLineByLine(int $start = 1): \Generator
     {
-        if (!$this->isExists()) return null;
+        if (!$this->isExists()) throw new \RuntimeException("file not found. path: {$this->path()}");
 
         $file = new \SplFileObject($this->path(), "r");
 
-        if (!$file) return null;
+        if (!$file) throw new \RuntimeException("failed to open file. path: {$this->path()}");
 
         $loop = 0;
 
@@ -95,13 +95,13 @@ abstract class Reader extends Operator implements ReaderInterface
      * 
      * @param int $row
      * @param int $start
-     * @return array|null
+     * @return array
      */
-    public function readByChunk(int $row = 1, int $start = 1): array|null
+    public function readByChunk(int $row = 1, int $start = 1): array
     {
         $data = $this->readByLine($start);
 
-        return is_array($data) ? array_chunk($data, $row) : null;
+        return is_array($data) ? array_chunk($data, $row) : [];
     }
 
     /**
@@ -109,17 +109,13 @@ abstract class Reader extends Operator implements ReaderInterface
      * 
      * @param int $row
      * @param int $start
-     * @return \Generator|null
+     * @return \Generator
      */
-    public function readChunkByChunk(int $row = 1, int $start = 1): \Generator|null
+    public function readChunkByChunk(int $row = 1, int $start = 1): \Generator
     {
-        $lines = $this->readLineByLine($start);
-
-        if (!$lines) return null;
-
         $chunk = [];
 
-        foreach ($lines as $line) {
+        foreach ($this->readLineByLine($start) as $line) {
             $chunk[] = $line;
 
             if (count($chunk) < $row) continue;

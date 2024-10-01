@@ -31,17 +31,17 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
      * read file by line
      * 
      * @param int $start
-     * @return array|null
+     * @return array
      */
-    public function readByLine(int $start = 1): array|null;
+    public function readByLine(int $start = 1): array;
 
     /**
      * read file line by line
      * 
      * @param int $start
-     * @return \Generator|null
+     * @return \Generator
      */
-    public function readLineByLine(int $start = 1): \Generator|null;
+    public function readLineByLine(int $start = 1): \Generator;
 
     /*----------------------------------------*
      * Read Chunk
@@ -52,16 +52,16 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
      * 
      * @param int $row
      * @param int $start
-     * @return array|null
+     * @return array
      */
-    public function readByChunk(int $row = 1, int $start = 1): array|null;
+    public function readByChunk(int $row = 1, int $start = 1): array;
 
     /**
      * read file chunk by chunk
      * 
      * @param int $row
      * @param int $start
-     * @return \Generator|null
+     * @return \Generator
      */
-    public function readChunkByChunk(int $row = 1, int $start = 1): \Generator|null;
+    public function readChunkByChunk(int $row = 1, int $start = 1): \Generator;
 }

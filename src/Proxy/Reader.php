@@ -16,11 +16,11 @@ use YukataRm\File\Proxy\Manager\ReaderManager as Manager;
  * 
  * @method static string|null read(string $path)
  * 
- * @method static array|null readByLine(string $path, int $start = 1)
- * @method static \Generator|null readLineByLine(string $path, int $start = 1)
+ * @method static array readByLine(string $path, int $start = 1)
+ * @method static \Generator readLineByLine(string $path, int $start = 1)
  * 
- * @method static array|null readByChunk(string $path, int $row = 1, int $start = 1)
- * @method static \Generator|null readChunkByChunk(string $path, int $row = 1, int $start = 1)
+ * @method static array readByChunk(string $path, int $row = 1, int $start = 1)
+ * @method static \Generator readChunkByChunk(string $path, int $row = 1, int $start = 1)
  * 
  * @see \YukataRm\File\Proxy\Manager\ReaderManager
  */

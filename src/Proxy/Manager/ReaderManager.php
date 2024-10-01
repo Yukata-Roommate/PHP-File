@@ -61,9 +61,9 @@ class ReaderManager
      * 
      * @param string $path
      * @param int $start
-     * @return array|null
+     * @return array
      */
-    public function readByLine(string $path, int $start = 1): array|null
+    public function readByLine(string $path, int $start = 1): array
     {
         return $this->makeFrom($path)->readByLine($start);
     }
@@ -73,9 +73,9 @@ class ReaderManager
      * 
      * @param string $path
      * @param int $start
-     * @return \Generator|null
+     * @return \Generator
      */
-    public function readLineByLine(string $path, int $start = 1): \Generator|null
+    public function readLineByLine(string $path, int $start = 1): \Generator
     {
         return $this->makeFrom($path)->readLineByLine($start);
     }
@@ -90,8 +90,9 @@ class ReaderManager
      * @param string $path
      * @param int $row
      * @param int $start
+     * @return array
      */
-    public function readByChunk(string $path, int $row = 1, int $start = 1): array|null
+    public function readByChunk(string $path, int $row = 1, int $start = 1): array
     {
         return $this->makeFrom($path)->readByChunk($row, $start);
     }
@@ -102,8 +103,9 @@ class ReaderManager
      * @param string $path
      * @param int $row
      * @param int $start
+     * @return \Generator
      */
-    public function readChunkByChunk(string $path, int $row = 1, int $start = 1): \Generator|null
+    public function readChunkByChunk(string $path, int $row = 1, int $start = 1): \Generator
     {
         return $this->makeFrom($path)->readChunkByChunk($row, $start);
     }
