@@ -45,9 +45,9 @@ class OperatorManager
      * create file
      * 
      * @param string $path
-     * @return bool
+     * @return static|null
      */
-    public function create(string $path): bool
+    public function create(string $path): static|null
     {
         return $this->makeFrom($path)->create();
     }
@@ -76,13 +76,11 @@ class OperatorManager
      * 
      * @param string $source
      * @param string $destination
-     * @return bool
+     * @return static|null
      */
-    public function copy(string $source, string $destination): bool
+    public function copy(string $source, string $destination): static|null
     {
-        $instance = $this->makeFrom($source)->copy($destination);
-
-        return !is_null($instance);
+        return $this->makeFrom($source)->copy($destination);
     }
 
     /*----------------------------------------*
@@ -96,11 +94,37 @@ class OperatorManager
      * @param string $destination
      * @return bool
      */
-    public function move(string $source, string $destination): bool
+    public function move(string $source, string $destination): static|null
     {
-        $instance = $this->makeFrom($source)->move($destination);
+        return $this->makeFrom($source)->move($destination);
+    }
 
-        return !is_null($instance);
+    /*----------------------------------------*
+     * Compress
+     *----------------------------------------*/
+
+    /**
+     * zip file
+     * 
+     * @param string $path
+     * @param string|null $destination
+     * @return static|null
+     */
+    public function zip(string $path, string|null $destination = null): static|null
+    {
+        return $this->makeFrom($path)->zip($destination);
+    }
+
+    /**
+     * unzip file
+     * 
+     * @param string $path
+     * @param string|null $destination
+     * @return static|array<static>|null
+     */
+    public function unzip(string $path, string|null $destination = null): static|array|null
+    {
+        return $this->makeFrom($path)->unzip($destination);
     }
 
     /*----------------------------------------*

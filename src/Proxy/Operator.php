@@ -14,13 +14,16 @@ use YukataRm\File\Proxy\Manager\OperatorManager as Manager;
  * @method static \YukataRm\File\Interface\OperatorInterface make()
  * @method static \YukataRm\File\Interface\OperatorInterface makeFrom(string $path)
  * 
- * @method static bool create(string $path)
+ * @method static static|null create(string $path)
  * 
  * @method static bool remove(string $path)
  * 
- * @method static bool copy(string $source, string $destination)
+ * @method static static|null copy(string $source, string $destination)
  * 
- * @method static bool move(string $source, string $destination)
+ * @method static static|null move(string $source, string $destination)
+ * 
+ * @method static static|null zip(string $path, string|null $destination = null)
+ * @method static static|array|null unzip(string $path, string|null $destination = null)
  * 
  * @method static bool chmod(string $path, int $mode)
  * @method static bool chown(string $path, string $user)

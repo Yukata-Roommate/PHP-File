@@ -21,9 +21,9 @@ interface OperatorInterface extends PathInfoInterface
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
-     * @return bool
+     * @return static|null
      */
-    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): bool;
+    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): static|null;
 
     /*----------------------------------------*
      * Remove

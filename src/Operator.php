@@ -24,19 +24,23 @@ class Operator extends PathInfo implements OperatorInterface
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
-     * @return bool
+     * @return static|null
      */
-    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): bool
+    public function create(int|null $mode = null, string|null $user = null, string|null $group = null): static|null
     {
-        if ($this->isExists()) return false;
+        if ($this->isExists()) return null;
 
         if (!$this->isDirExists()) $this->createDir();
 
-        $result = touch($this->path());
+        $touch = touch($this->path());
 
-        if (!$result) return false;
+        if (!$touch) return null;
 
-        return $this->chperm($mode, $user, $group);
+        $chperm = $this->chperm($mode, $user, $group);
+
+        if (!$chperm) return null;
+
+        return $this;
     }
 
     /**
