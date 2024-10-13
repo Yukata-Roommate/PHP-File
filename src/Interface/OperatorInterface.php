@@ -61,6 +61,26 @@ interface OperatorInterface extends PathInfoInterface
     public function move(string $destination): static|null;
 
     /*----------------------------------------*
+     * Compress
+     *----------------------------------------*/
+
+    /**
+     * zip file
+     * 
+     * @param string|null $destination
+     * @return static|null
+     */
+    public function zip(string|null $destination = null): static|null;
+
+    /**
+     * unzip file
+     * 
+     * @param string|null $destination
+     * @return static|array<static>|null
+     */
+    public function unzip(string|null $destination = null): static|array|null;
+
+    /*----------------------------------------*
      * Permission
      *----------------------------------------*/
 

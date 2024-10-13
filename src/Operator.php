@@ -5,6 +5,8 @@ namespace YukataRm\File;
 use YukataRm\File\Interface\OperatorInterface;
 use YukataRm\File\PathInfo;
 
+use ZipArchive;
+
 /**
  * Operator
  * 
@@ -113,6 +115,61 @@ class Operator extends PathInfo implements OperatorInterface
         $result = rename($this->path(), $move->path());
 
         return $result ? $move : null;
+    }
+
+    /*----------------------------------------*
+     * Compress
+     *----------------------------------------*/
+
+    /**
+     * zip file
+     * 
+     * @param string|null $destination
+     * @return static|null
+     */
+    public function zip(string|null $destination = null): static|null
+    {
+        $zip = new ZipArchive();
+
+        $destination = $destination ?? $this->dirname() . DIRECTORY_SEPARATOR . $this->basename() . ".zip";
+
+        // if exists, open zip file. else, create zip file
+        if ($zip->open($destination, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) return null;
+
+        $zip->addFile($this->path(), $this->basename());
+
+        $zip->close();
+
+        return new static($destination);
+    }
+
+    /**
+     * unzip file
+     * 
+     * @param string|null $destination
+     * @return static|array<static>|null
+     */
+    public function unzip(string|null $destination = null): static|array|null
+    {
+        if (!$this->isExists()) return null;
+
+        $zip = new ZipArchive();
+
+        if ($zip->open($this->path()) !== true) return null;
+
+        $destination = $destination ?? $this->dirname() . DIRECTORY_SEPARATOR . $this->basename();
+
+        if ($zip->extractTo($destination) !== true) return null;
+
+        $zip->close();
+
+        $files = [];
+
+        for ($i = 0; $i < $zip->numFiles; $i++) {
+            $files[] = new static($destination . DIRECTORY_SEPARATOR . $zip->getNameIndex($i));
+        }
+
+        return $files;
     }
 
     /*----------------------------------------*
