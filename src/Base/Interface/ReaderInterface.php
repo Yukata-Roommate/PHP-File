@@ -7,7 +7,7 @@ use YukataRm\File\Interface\OperatorInterface;
 
 /**
  * Reader Interface
- * 
+ *
  * @package YukataRm\File\Base\Interface
  */
 interface ReaderInterface extends PathInfoInterface, OperatorInterface
@@ -18,7 +18,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * read file
-     * 
+     *
      * @return string|null
      */
     public function read(): string|null;
@@ -29,7 +29,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * read file by line
-     * 
+     *
      * @param int $start
      * @return array
      */
@@ -37,7 +37,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * read file line by line
-     * 
+     *
      * @param int $start
      * @return \Generator
      */
@@ -49,7 +49,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * read file by chunk
-     * 
+     *
      * @param int $row
      * @param int $start
      * @return array
@@ -58,7 +58,7 @@ interface ReaderInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * read file chunk by chunk
-     * 
+     *
      * @param int $row
      * @param int $start
      * @return \Generator

@@ -7,7 +7,7 @@ use YukataRm\File\Reader;
 
 /**
  * Reader Proxy Manager
- * 
+ *
  * @package YukataRm\File\Proxy\Manager
  */
 class ReaderManager
@@ -28,7 +28,7 @@ class ReaderManager
 
     /**
      * make Reader instance from path
-     * 
+     *
      * @param string $path
      * @return \YukataRm\File\Interface\ReaderInterface
      */
@@ -43,7 +43,7 @@ class ReaderManager
 
     /**
      * read file
-     * 
+     *
      * @param string $path
      * @return string|null
      */
@@ -58,7 +58,7 @@ class ReaderManager
 
     /**
      * read file by line
-     * 
+     *
      * @param string $path
      * @param int $start
      * @return array
@@ -70,7 +70,7 @@ class ReaderManager
 
     /**
      * read file line by line
-     * 
+     *
      * @param string $path
      * @param int $start
      * @return \Generator
@@ -86,7 +86,7 @@ class ReaderManager
 
     /**
      * read file by chunk
-     * 
+     *
      * @param string $path
      * @param int $row
      * @param int $start
@@ -99,7 +99,7 @@ class ReaderManager
 
     /**
      * read file chunk by chunk
-     * 
+     *
      * @param string $path
      * @param int $row
      * @param int $start

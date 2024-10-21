@@ -6,7 +6,7 @@ use YukataRm\File\Interface\PathInfoInterface;
 
 /**
  * PathInfo
- * 
+ *
  * @package YukataRm\File
  */
 class PathInfo implements PathInfoInterface
@@ -17,14 +17,14 @@ class PathInfo implements PathInfoInterface
 
     /**
      * file path
-     * 
+     *
      * @var string
      */
     protected string $path = "";
 
     /**
      * set path
-     * 
+     *
      * @param string $path
      * @return static
      */
@@ -41,7 +41,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get path
-     * 
+     *
      * @return string
      */
     public function path(): string
@@ -51,7 +51,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get real path
-     * 
+     *
      * @return string
      */
     public function realpath(): string
@@ -65,7 +65,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get path info
-     * 
+     *
      * @return array<string, string>
      */
     public function pathInfo(): array
@@ -75,7 +75,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get directory name
-     * 
+     *
      * @return string
      */
     public function dirname(): string
@@ -85,7 +85,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file name and extension
-     * 
+     *
      * @return string
      */
     public function basename(): string
@@ -95,7 +95,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file extension
-     * 
+     *
      * @return string
      */
     public function extension(): string
@@ -105,7 +105,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file name
-     * 
+     *
      * @return string
      */
     public function filename(): string
@@ -119,7 +119,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get mime type
-     * 
+     *
      * @return string
      */
     public function mimetype(): string
@@ -137,7 +137,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get last modified time
-     * 
+     *
      * @return int
      */
     public function lastModified(): int
@@ -151,7 +151,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get last modified time as DateTime
-     * 
+     *
      * @return \DateTime
      */
     public function lastModifiedDateTime(): \DateTime
@@ -167,7 +167,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size
-     * 
+     *
      * @return int
      */
     public function size(): int
@@ -181,7 +181,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size with unit
-     * 
+     *
      * @return string
      */
     public function sizeString(): string
@@ -191,7 +191,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in kilobytes
-     * 
+     *
      * @return float
      */
     public function sizeKb(): float
@@ -201,7 +201,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in kilobytes with unit
-     * 
+     *
      * @return string
      */
     public function sizeKbString(): string
@@ -211,7 +211,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in megabytes
-     * 
+     *
      * @return float
      */
     public function sizeMb(): float
@@ -221,7 +221,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in megabytes with unit
-     * 
+     *
      * @return string
      */
     public function sizeMbString(): string
@@ -231,7 +231,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in gigabytes
-     * 
+     *
      * @return float
      */
     public function sizeGb(): float
@@ -241,7 +241,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file size in gigabytes with unit
-     * 
+     *
      * @return string
      */
     public function sizeGbString(): string
@@ -255,7 +255,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file mode
-     * 
+     *
      * @return string
      */
     public function mode(): string
@@ -269,7 +269,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file owner
-     * 
+     *
      * @return string
      */
     public function owner(): string
@@ -287,7 +287,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * get file group
-     * 
+     *
      * @return string
      */
     public function group(): string
@@ -309,7 +309,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file exists
-     * 
+     *
      * @return bool
      */
     public function isExists(): bool
@@ -319,7 +319,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether directory exists
-     * 
+     *
      * @return bool
      */
     public function isDirExists(): bool
@@ -329,7 +329,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is directory
-     * 
+     *
      * @return bool
      */
     public function isDir(): bool
@@ -339,7 +339,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is regular file
-     * 
+     *
      * @return bool
      */
     public function isFile(): bool
@@ -349,7 +349,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is link
-     * 
+     *
      * @return bool
      */
     public function isLink(): bool
@@ -359,7 +359,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is readable
-     * 
+     *
      * @return bool
      */
     public function isReadable(): bool
@@ -369,7 +369,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is writable
-     * 
+     *
      * @return bool
      */
     public function isWritable(): bool
@@ -379,7 +379,7 @@ class PathInfo implements PathInfoInterface
 
     /**
      * whether file is executable
-     * 
+     *
      * @return bool
      */
     public function isExecutable(): bool

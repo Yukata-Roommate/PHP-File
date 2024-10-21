@@ -7,7 +7,7 @@ use YukataRm\File\PathInfo;
 
 /**
  * PathInfo Proxy Manager
- * 
+ *
  * @package YukataRm\File\Proxy\Manager
  */
 class PathInfoManager
@@ -28,7 +28,7 @@ class PathInfoManager
 
     /**
      * make PathInfo instance from path
-     * 
+     *
      * @param string $path
      * @return \YukataRm\File\Interface\PathInfoInterface
      */
@@ -43,7 +43,7 @@ class PathInfoManager
 
     /**
      * get path info
-     * 
+     *
      * @param string $path
      * @return array<string, string>
      */
@@ -54,7 +54,7 @@ class PathInfoManager
 
     /**
      * get directory name
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -65,7 +65,7 @@ class PathInfoManager
 
     /**
      * get file name and extension
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -76,7 +76,7 @@ class PathInfoManager
 
     /**
      * get file extension
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -87,7 +87,7 @@ class PathInfoManager
 
     /**
      * get file name
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -102,7 +102,7 @@ class PathInfoManager
 
     /**
      * get mime type
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -117,7 +117,7 @@ class PathInfoManager
 
     /**
      * get last modified time
-     * 
+     *
      * @param string $path
      * @return int
      */
@@ -128,7 +128,7 @@ class PathInfoManager
 
     /**
      * get last modified time as DateTime
-     * 
+     *
      * @param string $path
      * @return \DateTime
      */
@@ -143,7 +143,7 @@ class PathInfoManager
 
     /**
      * get file size
-     * 
+     *
      * @param string $path
      * @return int
      */
@@ -154,7 +154,7 @@ class PathInfoManager
 
     /**
      * get file size with unit
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -165,7 +165,7 @@ class PathInfoManager
 
     /**
      * get file size in kilobytes
-     * 
+     *
      * @param string $path
      * @return float
      */
@@ -176,7 +176,7 @@ class PathInfoManager
 
     /**
      * get file size in kilobytes with unit
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -187,7 +187,7 @@ class PathInfoManager
 
     /**
      * get file size in megabytes
-     * 
+     *
      * @param string $path
      * @return float
      */
@@ -198,7 +198,7 @@ class PathInfoManager
 
     /**
      * get file size in megabytes with unit
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -209,7 +209,7 @@ class PathInfoManager
 
     /**
      * get file size in gigabytes
-     * 
+     *
      * @param string $path
      * @return float
      */
@@ -220,7 +220,7 @@ class PathInfoManager
 
     /**
      * get file size in gigabytes with unit
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -235,7 +235,7 @@ class PathInfoManager
 
     /**
      * get file mode
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -246,7 +246,7 @@ class PathInfoManager
 
     /**
      * get file owner
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -257,7 +257,7 @@ class PathInfoManager
 
     /**
      * get file group
-     * 
+     *
      * @param string $path
      * @return string
      */
@@ -272,7 +272,7 @@ class PathInfoManager
 
     /**
      * whether file exists
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -283,7 +283,7 @@ class PathInfoManager
 
     /**
      * whether directory exists
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -294,7 +294,7 @@ class PathInfoManager
 
     /**
      * whether file is directory
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -305,7 +305,7 @@ class PathInfoManager
 
     /**
      * whether file is regular file
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -316,7 +316,7 @@ class PathInfoManager
 
     /**
      * whether file is link
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -327,7 +327,7 @@ class PathInfoManager
 
     /**
      * whether file is readable
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -338,7 +338,7 @@ class PathInfoManager
 
     /**
      * whether file is writable
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -349,7 +349,7 @@ class PathInfoManager
 
     /**
      * whether file is executable
-     * 
+     *
      * @param string $path
      * @return bool
      */

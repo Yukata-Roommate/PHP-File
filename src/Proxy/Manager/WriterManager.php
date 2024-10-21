@@ -7,7 +7,7 @@ use YukataRm\File\Writer;
 
 /**
  * Writer Proxy Manager
- * 
+ *
  * @package YukataRm\File\Proxy\Manager
  */
 class WriterManager
@@ -28,7 +28,7 @@ class WriterManager
 
     /**
      * make Writer instance from path
-     * 
+     *
      * @param string $path
      * @return \YukataRm\File\Interface\WriterInterface
      */
@@ -43,7 +43,7 @@ class WriterManager
 
     /**
      * write file
-     * 
+     *
      * @param string $path
      * @param mixed $content
      * @param bool $useFileAppend

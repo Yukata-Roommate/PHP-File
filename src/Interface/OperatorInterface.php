@@ -6,7 +6,7 @@ use YukataRm\File\Interface\PathInfoInterface;
 
 /**
  * Operator Interface
- * 
+ *
  * @package YukataRm\File\Interface
  */
 interface OperatorInterface extends PathInfoInterface
@@ -17,7 +17,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * create file
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -31,7 +31,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * remove file
-     * 
+     *
      * @return bool
      */
     public function remove(): bool;
@@ -42,7 +42,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * copy file
-     * 
+     *
      * @param string $destination
      * @return static|null
      */
@@ -54,7 +54,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * move file
-     * 
+     *
      * @param string $destination
      * @return static|null
      */
@@ -66,7 +66,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * zip file
-     * 
+     *
      * @param string|null $destination
      * @return static|null
      */
@@ -74,7 +74,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * unzip file
-     * 
+     *
      * @param string|null $destination
      * @return static|array<static>|null
      */
@@ -86,7 +86,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * change file permissions
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -96,7 +96,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * change file mode
-     * 
+     *
      * @param int $mode
      * @return bool
      */
@@ -104,7 +104,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * change file owner
-     * 
+     *
      * @param string $user
      * @return bool
      */
@@ -112,7 +112,7 @@ interface OperatorInterface extends PathInfoInterface
 
     /**
      * change file group
-     * 
+     *
      * @param string $group
      * @return bool
      */

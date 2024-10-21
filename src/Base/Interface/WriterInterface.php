@@ -7,7 +7,7 @@ use YukataRm\File\Interface\OperatorInterface;
 
 /**
  * Writer Interface
- * 
+ *
  * @package YukataRm\File\Base\Interface
  */
 interface WriterInterface extends PathInfoInterface, OperatorInterface
@@ -18,7 +18,7 @@ interface WriterInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * write file
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -28,7 +28,7 @@ interface WriterInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * write file as is
-     * 
+     *
      * @param mixed $data
      * @param int|null $mode
      * @param string|null $user
@@ -43,42 +43,42 @@ interface WriterInterface extends PathInfoInterface, OperatorInterface
 
     /**
      * whether to use FILE_APPEND flag
-     * 
+     *
      * @return bool
      */
     public function isUseFileAppend(): bool;
 
     /**
      * use FILE_APPEND flag
-     * 
+     *
      * @return static
      */
     public function useFileAppend(): static;
 
     /**
      * not use FILE_APPEND flag
-     * 
+     *
      * @return static
      */
     public function notUseFileAppend(): static;
 
     /**
      * whether to use LOCK_EX flag
-     * 
+     *
      * @return bool
      */
     public function isUseLockEx(): bool;
 
     /**
      * use LOCK_EX flag
-     * 
+     *
      * @return static
      */
     public function useLockEx(): static;
 
     /**
      * not use LOCK_EX flag
-     * 
+     *
      * @return static
      */
     public function notUseLockEx(): static;

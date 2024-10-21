@@ -7,7 +7,7 @@ use YukataRm\File\Operator;
 
 /**
  * Writer
- * 
+ *
  * @package YukataRm\File\Base
  */
 abstract class Writer extends Operator implements WriterInterface
@@ -18,7 +18,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * write file
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -37,7 +37,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * write file as is
-     * 
+     *
      * @param mixed $data
      * @param int|null $mode
      * @param string|null $user
@@ -55,7 +55,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * create file if not exists
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -72,7 +72,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * get data to write
-     * 
+     *
      * @return mixed
      */
     protected function getData(): mixed
@@ -82,7 +82,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * execute writing file
-     * 
+     *
      * @param mixed $data
      * @return bool
      */
@@ -103,21 +103,21 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * whether to use FILE_APPEND flag
-     * 
+     *
      * @var bool
      */
     protected bool $useFileAppend = false;
 
     /**
      * whether to use LOCK_EX flag
-     * 
+     *
      * @var bool
      */
     protected bool $useLockEx = false;
 
     /**
      * get flag
-     * 
+     *
      * @return int
      */
     protected function flag(): int
@@ -132,7 +132,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * whether to use FILE_APPEND flag
-     * 
+     *
      * @return bool
      */
     public function isUseFileAppend(): bool
@@ -142,7 +142,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * use FILE_APPEND flag
-     * 
+     *
      * @return static
      */
     public function useFileAppend(): static
@@ -154,7 +154,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * not use FILE_APPEND flag
-     * 
+     *
      * @return static
      */
     public function notUseFileAppend(): static
@@ -166,7 +166,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * whether to use LOCK_EX flag
-     * 
+     *
      * @return bool
      */
     public function isUseLockEx(): bool
@@ -176,7 +176,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * use LOCK_EX flag
-     * 
+     *
      * @return static
      */
     public function useLockEx(): static
@@ -188,7 +188,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * not use LOCK_EX flag
-     * 
+     *
      * @return static
      */
     public function notUseLockEx(): static
@@ -204,7 +204,7 @@ abstract class Writer extends Operator implements WriterInterface
 
     /**
      * get content to write
-     * 
+     *
      * @return mixed
      */
     abstract public function content(): mixed;

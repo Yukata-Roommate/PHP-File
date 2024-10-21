@@ -7,7 +7,7 @@ use YukataRm\File\Operator;
 
 /**
  * Operator Proxy Manager
- * 
+ *
  * @package YukataRm\File\Proxy\Manager
  */
 class OperatorManager
@@ -28,7 +28,7 @@ class OperatorManager
 
     /**
      * make Operator instance from path
-     * 
+     *
      * @param string $path
      * @return \YukataRm\File\Interface\OperatorInterface
      */
@@ -43,7 +43,7 @@ class OperatorManager
 
     /**
      * create file
-     * 
+     *
      * @param string $path
      * @return static|null
      */
@@ -58,7 +58,7 @@ class OperatorManager
 
     /**
      * remove file
-     * 
+     *
      * @param string $path
      * @return bool
      */
@@ -73,7 +73,7 @@ class OperatorManager
 
     /**
      * copy file
-     * 
+     *
      * @param string $source
      * @param string $destination
      * @return static|null
@@ -89,7 +89,7 @@ class OperatorManager
 
     /**
      * move file
-     * 
+     *
      * @param string $source
      * @param string $destination
      * @return bool
@@ -105,7 +105,7 @@ class OperatorManager
 
     /**
      * zip file
-     * 
+     *
      * @param string $path
      * @param string|null $destination
      * @return static|null
@@ -117,7 +117,7 @@ class OperatorManager
 
     /**
      * unzip file
-     * 
+     *
      * @param string $path
      * @param string|null $destination
      * @return static|array<static>|null
@@ -133,7 +133,7 @@ class OperatorManager
 
     /**
      * set file mode
-     * 
+     *
      * @param string $path
      * @param int $mode
      * @return bool
@@ -145,7 +145,7 @@ class OperatorManager
 
     /**
      * set file owner
-     * 
+     *
      * @param string $path
      * @param string $user
      * @return bool
@@ -157,7 +157,7 @@ class OperatorManager
 
     /**
      * set file group
-     * 
+     *
      * @param string $path
      * @param string $group
      * @return bool

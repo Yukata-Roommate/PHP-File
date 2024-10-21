@@ -9,7 +9,7 @@ use ZipArchive;
 
 /**
  * Operator
- * 
+ *
  * @package YukataRm\File
  */
 class Operator extends PathInfo implements OperatorInterface
@@ -20,7 +20,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * create file
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -45,7 +45,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * create directory
-     * 
+     *
      * @return bool
      */
     protected function createDir(): bool
@@ -61,7 +61,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * remove file
-     * 
+     *
      * @return bool
      */
     public function remove(): bool
@@ -77,7 +77,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * copy file
-     * 
+     *
      * @param string $destination
      * @return static|null
      */
@@ -102,7 +102,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * move file
-     * 
+     *
      * @param string $destination
      * @return static|null
      */
@@ -127,7 +127,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * zip file
-     * 
+     *
      * @param string|null $destination
      * @return static|null
      */
@@ -149,7 +149,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * unzip file
-     * 
+     *
      * @param string|null $destination
      * @return static|array<static>|null
      */
@@ -182,7 +182,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * change file permissions
-     * 
+     *
      * @param int|null $mode
      * @param string|null $user
      * @param string|null $group
@@ -201,7 +201,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * change file mode
-     * 
+     *
      * @param int $mode
      * @return bool
      */
@@ -212,7 +212,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * change file owner
-     * 
+     *
      * @param string $user
      * @return bool
      */
@@ -223,7 +223,7 @@ class Operator extends PathInfo implements OperatorInterface
 
     /**
      * change file group
-     * 
+     *
      * @param string $group
      * @return bool
      */

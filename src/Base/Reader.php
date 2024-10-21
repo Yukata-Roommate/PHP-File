@@ -7,7 +7,7 @@ use YukataRm\File\Operator;
 
 /**
  * Reader
- * 
+ *
  * @package YukataRm\File\Base
  */
 abstract class Reader extends Operator implements ReaderInterface
@@ -18,7 +18,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * read file
-     * 
+     *
      * @return string|null
      */
     public function read(): string|null
@@ -36,7 +36,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * read file by line
-     * 
+     *
      * @param int $start
      * @return array
      */
@@ -53,7 +53,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * read file line by line
-     * 
+     *
      * @param int $start
      * @return \Generator
      */
@@ -80,7 +80,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * get file data
-     * 
+     *
      * @param \SplFileObject $file
      * @return mixed
      */
@@ -92,7 +92,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * read file by chunk
-     * 
+     *
      * @param int $row
      * @param int $start
      * @return array
@@ -106,7 +106,7 @@ abstract class Reader extends Operator implements ReaderInterface
 
     /**
      * read file chunk by chunk
-     * 
+     *
      * @param int $row
      * @param int $start
      * @return \Generator

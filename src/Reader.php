@@ -7,7 +7,7 @@ use YukataRm\File\Base\Reader as BaseReader;
 
 /**
  * Reader
- * 
+ *
  * @package YukataRm\File
  */
 class Reader extends BaseReader implements ReaderInterface
@@ -18,7 +18,7 @@ class Reader extends BaseReader implements ReaderInterface
 
     /**
      * get file data
-     * 
+     *
      * @param \SplFileObject $file
      * @return string
      */

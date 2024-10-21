@@ -7,7 +7,7 @@ use YukataRm\File\Base\Writer as BaseWriter;
 
 /**
  * Writer
- * 
+ *
  * @package YukataRm\File
  */
 class Writer extends BaseWriter implements WriterInterface
@@ -18,14 +18,14 @@ class Writer extends BaseWriter implements WriterInterface
 
     /**
      * content to write
-     * 
+     *
      * @var mixed
      */
     protected mixed $content = null;
 
     /**
      * get content to write
-     * 
+     *
      * @return mixed
      */
     public function content(): mixed
@@ -35,7 +35,7 @@ class Writer extends BaseWriter implements WriterInterface
 
     /**
      * set content to write
-     * 
+     *
      * @param mixed $content
      * @return static
      */
